@@ -13,12 +13,12 @@ const questions = [
     {
         type: 'input',
         name: 'Description',
-        message: 'Brief description of your project',
+        message: 'Brief description of your project.',
     },
     {
         type: 'input',
         name: 'Install',
-        message: 'What are the steps to install',
+        message: 'What are the steps to install.',
 
     },
     {
@@ -28,7 +28,7 @@ const questions = [
     },
     {
         type: 'list',
-        name: 'license',
+        name: 'License',
         Choose: [
             'None',
             'Apache License 2.0',
@@ -64,23 +64,30 @@ const questions = [
     },
     {
         type: 'email',
-        name: 'email',
+        name: 'Email',
         message: 'What is your email address?',
     },
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) { 
-    inquirer 
-    .prompt(questions)
-    .then((answers) => {
-        const readMe = generateMarkdown
-
-    })
-}
-
+function writeToFile(fileName, data) {
+    inquirer
+        .prompt(questions)
+        .then((answers) => {
+            const readME = generateMarkdown(answers);
+            if (readME === '') {
+                console.log('README.md Issue, please try again.');
+            } else {
+                fs.writeFile('README.md', readME, (err) =>
+                    err ? console.log(err) : console.log('Success! Created a README.md')
+                );
+            };
+        });
+};
 // TODO: Create a function to initialize app
-function init() { }
-
+function init() {
+    console.log('Titlename, Description, Install, Usage, License, GitHub username and Email ');
+    writeToFile();
+};
 // Function call to initialize app
 init();
