@@ -70,7 +70,8 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
+function writeToFile(fileName, _data) {
+    let fileName = 'README.md';
     inquirer
         .prompt(questions)
         .then((answers) => {
@@ -78,11 +79,18 @@ function writeToFile(fileName, data) {
             if (readME === '') {
                 console.log('README.md Issue, please try again.');
             } else {
-                fs.writeFile('README.md', readME, (err) =>
+                fs.writeFile(fileName, readME, (err) =>
                     err ? console.log(err) : console.log('Success! Created a README.md')
                 );
             };
         });
+        .catch ((error) => {
+        if (error.isTtyError) {
+            // Prompt couldn't be rendered in the current environment
+        } else {
+            // Something else went wrong
+        }
+    });
 };
 // TODO: Create a function to initialize app
 function init() {
