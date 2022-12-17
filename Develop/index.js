@@ -7,7 +7,7 @@ const generateMarkdown = require('./utils/generateMarkdown')
 const questions = [
     {
         type: 'input',
-        name: 'Titlename',
+        name: 'Title',
         message: 'What is your project title?',
     },
     {
@@ -29,20 +29,15 @@ const questions = [
     {
         type: 'list',
         name: 'License',
-        Choose: [
+        choices: [
             'None',
             'Apache License 2.0',
             'GNU General Public License v3.0',
             'MIT License',
             'BSD 2-Clause "Simplified" License',
             'BSD 3-Clause "New" or "Revised" License',
-            'Boost Software License 1.0',
-            'Creative Commons Zero v1.0 Universal',
-            'Eclipse Public License 2.0',
-            'GNU Affero General Public License v3.0',
             'GNU General Public License v2.0',
             'GNU Lesser General Public License v2.1',
-            'Mozilla Public License 2.0',
             'The Unlicense',
         ],
         message: 'What license was assigned to project?',
@@ -59,7 +54,7 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'GitHub username',
+        name: 'GitHub Username',
         message: 'What is your github username?',
     },
     {
@@ -71,7 +66,7 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, _data) {
-    let fileName = 'README.md';
+    // let fileName = 'README.md';
     inquirer
         .prompt(questions)
         .then((answers) => {
@@ -80,21 +75,21 @@ function writeToFile(fileName, _data) {
                 console.log('README.md Issue, please try again.');
             } else {
                 fs.writeFile(fileName, readME, (err) =>
-                    err ? console.log(err) : console.log('Success! Created a README.md')
+                    err ? console.log(err) : console.log('Success! File created README.md')
                 );
             };
         });
-        .catch ((error) => {
-        if (error.isTtyError) {
-            // Prompt couldn't be rendered in the current environment
-        } else {
-            // Something else went wrong
-        }
-    });
+    //     .catch ((error) => {
+    //     if (error.isTtyError) {
+    //         // Prompt couldn't be rendered in the current environment
+    //     } else {
+    //         // Something else went wrong
+    //     }
+    // });
 };
 // TODO: Create a function to initialize app
 function init() {
-    console.log('Titlename, Description, Install, Usage, License, GitHub username and Email ');
+    console.log('Title, Description, Install, Usage, License, GitHub username and Email ');
     writeToFile();
 };
 // Function call to initialize app
