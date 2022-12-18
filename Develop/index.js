@@ -54,7 +54,7 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'GitHub Username',
+        name: 'GitHub',
         message: 'What is your github username?',
     },
     {
@@ -74,7 +74,7 @@ function writeToFile(fileName, _data) {
             if (readME === '') {
                 console.log('README.md Issue, please try again.');
             } else {
-                fs.writeFile(fileName, readME, (err) =>
+                fs.writeFile('README.md', readME, (err) =>
                     err ? console.log(err) : console.log('Success! File created README.md')
                 );
             };

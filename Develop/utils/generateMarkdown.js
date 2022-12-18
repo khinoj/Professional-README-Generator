@@ -36,6 +36,31 @@ function renderLicenseBadge(license) {
 function generateMarkdown(data) {
   return `# ${data.title}
 
+  ## Description
+   - ${data.description}
+
+   ## Install
+   - ${data.install}
+
+   ## License
+
+   - ${renderLicenseBadge(data.license)}
+
+   ## Contributing
+   - ${data.contributing}
+
+   ## tests
+
+   - ${data.tests}
+
+   ## GitHub Username
+
+   - Check out my Github page for more information at ${data.github}
+
+   ## Email
+
+  - For question feel free to send them to my email ${data.email}
+
 `;
 }
 
