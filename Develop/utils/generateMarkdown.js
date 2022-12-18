@@ -42,6 +42,9 @@ function generateMarkdown(data) {
    ## Install
    - ${data.install}
 
+   ## Useage
+   - ${data.usage}
+
    ## License
 
    - ${renderLicenseBadge(data.license)}
@@ -55,11 +58,11 @@ function generateMarkdown(data) {
 
    ## GitHub Username
 
-   - Check out my Github page for more information at ${data.github}
+   - Check out my Github page for more information at ${data.GitHub}
 
    ## Email
 
-  - For question feel free to send them to my email ${data.email}
+  - For question feel free to send them to my email ${data.Email}
 
 `;
 }
