@@ -65,10 +65,11 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, _data) {
+function writeToFile() {
     // let fileName = 'README.md';
     inquirer
         .prompt(questions)
+        //answers is a parameter into this function.
         .then((answers) => {
             const readME = generateMarkdown(answers);
             if (readME === '') {

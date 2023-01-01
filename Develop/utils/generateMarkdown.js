@@ -13,10 +13,10 @@ function renderLicenseBadge(license) {
   if (license === 'MIT License') {
     return '![License: MIT License](https://img.shields.io/badge/License-MIT.0-red.svg)(https://choosealicense.com/licenses/mit/)'
   }
-  if (license === 'BSD 2-Clause "Simplified" License' || 'BSD 3-Clause "New" or "Revised" License') {
+  if (license === 'BSD 2-Clause "Simplified" License' || license === 'BSD 3-Clause "New" or "Revised" License') {
     return '![License: BSD License](https://img.shields.io/badge/License-BSD-blueviolet.svg)(https://www.openbsd.org/policy.html)'
   }
-  if (license === 'GNU General Public License v2.0' || 'GNU Lesser General Public License v2.1') {
+  if (license === 'GNU General Public License v2.0' || license === 'GNU Lesser General Public License v2.1') {
     return '![License: MIT License](https://img.shields.io/badge/License-GNU2.0-blue.svg)(https://choosealicense.com/licenses/gpl-2.0/)'
   }
   if (license === 'The Unlicense') {
